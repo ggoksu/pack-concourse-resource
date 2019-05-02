@@ -4,7 +4,7 @@ resources:
   type: git
   source:
     uri: ((git-url))
-- name: pack-goflake
+- name: app-image
   type: pack-image-resource
   source:
     repository: ((repository))
@@ -16,15 +16,15 @@ resource_types:
   type: docker-image
   privileged: true
   source:
-    repository: bstick12/pack-concourse-resource
+    repository: ggoksu/pack-concourse-resource
     version: latest
 
 jobs:
-- name: build-goflake-image
+- name: build
   plan:
   - get: git-resource
     trigger: true
-  - put: pack-goflake
+  - put: app-image
     params:
       build: git-resource
       builder: ((pack-builder))

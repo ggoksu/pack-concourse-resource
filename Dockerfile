@@ -14,7 +14,7 @@ FROM bstick12/ubuntu-dind
 ARG pack_version
 
 RUN apt-get install wget jq -y
-RUN wget -c https://github.com/buildpack/pack/releases/download/v$pack_version/pack-$pack_version-linux.tar.gz -O - | tar -zx -C /usr/local/bin
+RUN wget -c https://github.com/buildpack/pack/releases/download/v$pack_version/pack-v$pack_version-linux.tgz -O - | tar -zx -C /usr/local/bin
 
 COPY --from=builder /assets/ /opt/resource
 COPY out /opt/resource/out

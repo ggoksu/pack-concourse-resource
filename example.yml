@@ -10,13 +10,14 @@ resources:
     repository: ((repository))
     username: ((docker-hub-username))
     password: ((docker-hub-password))
+    insecure_registries: [((insecure_registries))]
 
 resource_types:
 - name: pack-image-resource
   type: docker-image
   privileged: true
   source:
-    repository: ggoksu/pack-concourse-resource
+    repository: bstick12/pack-concourse-resource
     version: latest
 
 jobs:
